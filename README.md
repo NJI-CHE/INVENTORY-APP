@@ -25,9 +25,7 @@ This is an Inventory management platform that  allows businesses to manage their
 
 ### Frontend Setup
 - Cd into the frontend folder and run the following code
-```
--npm create vite@latest frontend -- --template react
-```
+
 - Install packages using: 
 ```
 npm install axios react-router-dom jwt-decode
