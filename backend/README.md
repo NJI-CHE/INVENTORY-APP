@@ -57,21 +57,22 @@ See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-djan
 
 See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
 
-### .env format for development
+## .env format for development
 
 DJANGO_READ_DOT_ENV_FILE=True
 DJANGO_DEBUG=True
 
 USE_DOCKER=no
 
-# Database individual components
+### Database individual components
 DB_NAME=dbname
 DB_USER=user
 DB_PASSWORD=password
 DB_HOST=host
 DB_PORT=port
 
-# Complete DATABASE_URL using actual values
+### Complete DATABASE_URL using actual values
 DATABASE_URL=postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&param2=value2...]
 
-NB: params are optional and remember to remove [] when replacing arguments in DATABASE_URL
+*NB: params are optional and remember to remove [] when replacing arguments in DATABASE_URL*
+*Remember to export `Export DJANGO_READ_DOT_ENV_FILE = True` in the terminal*
