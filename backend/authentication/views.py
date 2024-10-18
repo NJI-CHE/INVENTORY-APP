@@ -10,7 +10,7 @@ from rest_framework.response import Response
 
 from rest_framework_simplejwt.views import(
     TokenObtainPairView,
-    TokenRefreshView
+    TokenRefreshView,
 
 )
 
@@ -23,7 +23,7 @@ class CustumTokenObtainPairView(TokenObtainPairView):
             tokens = request.data
 
             access_token = tokens['access']
-            refresh_token = token['refresh']
+            refresh_token = tokens['refresh']
 
             res = Response()
 
@@ -33,9 +33,29 @@ class CustumTokenObtainPairView(TokenObtainPairView):
                 key="access_token",
                 value= access_token,
                 httponly=True,
-                secure=True
+                secure=True,
+                samesite='None',
+                path='/'
+
+        
 
             )
+
+            res.set_cookie(
+                key="refresh_token",
+                value= reresh_token,
+                httponly=True,
+                secure=True,
+                samesite='None',
+                path='/'
+        
+
+            )
+
+            return res
+        
+        except:
+            return Response({'success':False})
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
